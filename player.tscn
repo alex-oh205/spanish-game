@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://fgolmgmvdnm2"]
+
+[ext_resource type="Script" uid="uid://ctd6ufv7vdoc2" path="res://Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sh265"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_4flbx")
+Bullet = ExtResource("2_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sh265")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_sh265")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_4flbx")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(12, 0)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_onrkg")
