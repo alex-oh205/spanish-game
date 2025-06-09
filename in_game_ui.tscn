@@ -1,0 +1,434 @@
+[gd_scene load_steps=25 format=3 uid="uid://c5ijcwrjsyl0v"]
+
+[ext_resource type="Script" uid="uid://whyqol0dcixu" path="res://Scripts/in_game_ui.gd" id="1_4v80v"]
+[ext_resource type="StyleBox" uid="uid://bkib3mq7do4ef" path="res://Assets/Art/Styles/red_border.tres" id="1_cwbuu"]
+[ext_resource type="StyleBox" uid="uid://ccer34dxliwsy" path="res://Assets/Art/Styles/green_border.tres" id="2_4v80v"]
+[ext_resource type="StyleBox" uid="uid://dqa781n3gdtmr" path="res://Assets/Art/Styles/orange_border.tres" id="2_uusyb"]
+[ext_resource type="StyleBox" uid="uid://by1t7fhc2bnlt" path="res://Assets/Art/Styles/blue_border.tres" id="3_0qsvx"]
+[ext_resource type="Script" uid="uid://b4ec3wyluoejm" path="res://Scripts/answer_button.gd" id="3_uusyb"]
+[ext_resource type="StyleBox" uid="uid://cfais6ns0oxuf" path="res://Assets/Art/Styles/yellow_border.tres" id="4_uusyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ep3pr"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qsvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4plnj"]
+bg_color = Color(0.3, 0.19, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.664, 0.16, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0sw5"]
+bg_color = Color(1, 0.662745, 0.160784, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.664, 0.16, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uusyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukwlx"]
+bg_color = Color(0.3, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.180392, 0.180392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3j15"]
+bg_color = Color(1, 0.180392, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.18, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjjbm"]
+bg_color = Color(0.042, 0.3, 0.0463, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14, 1, 0.154333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw3uw"]
+bg_color = Color(0.141176, 1, 0.152941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14, 1, 0.154333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4etj"]
+bg_color = Color(0.042, 0.1366, 0.3, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14, 0.455333, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pabwj"]
+bg_color = Color(0.141176, 0.454902, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14, 0.455333, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkija"]
+bg_color = Color(0.3, 0.259, 0.054, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.863333, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46s8a"]
+bg_color = Color(1, 0.862745, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.863333, 0.18, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qsvx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8h7b"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uusyb"]
+bg_color = Color(1, 0.14, 0.14, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpq86"]
+bg_color = Color(0.16, 1, 0.16, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="InGameUI" type="Control" node_paths=PackedStringArray("dialog", "actions", "answers", "enemy_health_bar", "anger_meter", "player_health_bar", "enemy_image")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4v80v")
+dialog = NodePath("ActionsUI/Background/MarginContainer/BottomContainer/DialogBox/Dialog")
+actions = NodePath("ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions")
+answers = NodePath("ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers")
+enemy_health_bar = NodePath("HUD/EnemyHealthContainer/EnemyHealthBar")
+anger_meter = NodePath("HUD/AngerMeterContainer/AngerMeter")
+player_health_bar = NodePath("HUD/PlayerHealthContainer/PlayerHealthBar")
+enemy_image = NodePath("ActionsUI/Background/MarginContainer/EnemyContainer/EnemyImage")
+
+[node name="ActionsUI" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="ActionsUI"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsUI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="EnemyContainer" type="MarginContainer" parent="ActionsUI/Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 50
+
+[node name="EnemyImage" type="TextureRect" parent="ActionsUI/Background/MarginContainer/EnemyContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BottomContainer" type="VBoxContainer" parent="ActionsUI/Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 30
+
+[node name="DialogBox" type="PanelContainer" parent="ActionsUI/Background/MarginContainer/BottomContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ep3pr")
+
+[node name="Dialog" type="Label" parent="ActionsUI/Background/MarginContainer/BottomContainer/DialogBox"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Placeholder"
+
+[node name="Options" type="MarginContainer" parent="ActionsUI/Background/MarginContainer/BottomContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Actions" type="HBoxContainer" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qsvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4plnj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0sw5")
+theme_override_styles/normal = ExtResource("2_uusyb")
+text = "Attack"
+
+[node name="Negotiate" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qsvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4plnj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0sw5")
+theme_override_styles/normal = ExtResource("2_uusyb")
+text = "Negotiate"
+
+[node name="Heal" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qsvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4plnj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0sw5")
+theme_override_styles/normal = ExtResource("2_uusyb")
+text = "Heal"
+
+[node name="Answers" type="HBoxContainer" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Choice1" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uusyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ukwlx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3j15")
+theme_override_styles/normal = ExtResource("1_cwbuu")
+text = "Placeholder"
+script = ExtResource("3_uusyb")
+
+[node name="Choice2" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uusyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjjbm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nw3uw")
+theme_override_styles/normal = ExtResource("2_4v80v")
+text = "Placeholder"
+script = ExtResource("3_uusyb")
+id = 1
+
+[node name="Choice3" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uusyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u4etj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pabwj")
+theme_override_styles/normal = ExtResource("3_0qsvx")
+text = "Placeholder"
+script = ExtResource("3_uusyb")
+id = 2
+
+[node name="Choice4" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uusyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rkija")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46s8a")
+theme_override_styles/normal = ExtResource("4_uusyb")
+text = "Placeholder"
+script = ExtResource("3_uusyb")
+id = 3
+
+[node name="Separator" type="Control" parent="ActionsUI/Background/MarginContainer/BottomContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="EnemyHealthContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="EnemyHealthLabel" type="Label" parent="HUD/EnemyHealthContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Enemy HP"
+vertical_alignment = 1
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="HUD/EnemyHealthContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_0qsvx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l8h7b")
+show_percentage = false
+
+[node name="AngerMeterContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="AngerMeterLabel" type="Label" parent="HUD/AngerMeterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Anger Meter"
+vertical_alignment = 1
+
+[node name="AngerMeter" type="ProgressBar" parent="HUD/AngerMeterContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_0qsvx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uusyb")
+show_percentage = false
+
+[node name="PlayerHealthContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="PlayerHealthLabel" type="Label" parent="HUD/PlayerHealthContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "HP"
+vertical_alignment = 1
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="HUD/PlayerHealthContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_0qsvx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dpq86")
+show_percentage = false
+
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions/Negotiate" to="." method="_on_negotiate_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions/Heal" to="." method="_on_heal_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice1" to="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice1" method="_on_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice2" to="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice2" method="_on_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice3" to="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice3" method="_on_pressed"]
+[connection signal="pressed" from="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice4" to="ActionsUI/Background/MarginContainer/BottomContainer/Options/Answers/Choice4" method="_on_pressed"]

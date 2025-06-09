@@ -1,12 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://cual53yd6cfuh"]
+[gd_scene load_steps=7 format=3 uid="uid://cual53yd6cfuh"]
 
 [ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_3hls8"]
-[ext_resource type="PackedScene" uid="uid://bf548w3valsr8" path="res://enemy.tscn" id="2_hbghi"]
+[ext_resource type="Script" uid="uid://dlpfhrcdpd7o2" path="res://Scripts/level_1.gd" id="1_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://bf548w3valsr8" path="res://enemy_mobile.tscn" id="2_hbghi"]
+[ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="3_hn12h"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihfcg"]
+
+[sub_resource type="TileSet" id="TileSet_j7kpp"]
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("ui", "player")]
+script = ExtResource("1_ihfcg")
+enemy = ExtResource("2_hbghi")
+ui = NodePath("CanvasLayer/InGameUI")
+player = NodePath("Player")
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, 324)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ihfcg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(576, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_ihfcg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(576, 648)
+shape = SubResource("WorldBoundaryShape2D_ihfcg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(1152, 324)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_ihfcg")
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_j7kpp")
+format = 2
 
 [node name="Player" parent="." instance=ExtResource("1_3hls8")]
+visible = false
 position = Vector2(569, 324)
 
-[node name="Enemy" parent="." instance=ExtResource("2_hbghi")]
-position = Vector2(272, 167)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("3_hn12h")]

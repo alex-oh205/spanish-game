@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf548w3valsr8"]
+
+[ext_resource type="Script" uid="uid://cc3vr5jifgohv" path="res://Scripts/enemy_mobile.gd" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://d4bawc7xww1hx" path="res://damager.tscn" id="2_4gyqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7k104"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 1320.02
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("damager", "detect_radius", "death_timer") groups=["enemies"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_7k104")
+damager = NodePath("Damager")
+detect_radius = NodePath("DetectRadius")
+death_timer = NodePath("DeathTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_7k104")
+
+[node name="DetectRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="Damager" parent="." instance=ExtResource("2_4gyqm")]
+
+[node name="CollisionShape2D" parent="Damager" index="0"]
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DetectRadius" to="." method="_on_detect_radius_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+
+[editable path="Damager"]

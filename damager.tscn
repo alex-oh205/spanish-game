@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4bawc7xww1hx"]
+
+[ext_resource type="Script" uid="uid://bmgyhv5jylmr0" path="res://Scripts/damager.gd" id="1_jepre"]
+
+[node name="Damager" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_jepre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://fgolmgmvdnm2"]
 
 [ext_resource type="Script" uid="uid://ctd6ufv7vdoc2" path="res://Scripts/player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://daws615remkjv" path="res://Scripts/damageable.gd" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 
@@ -11,10 +11,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox") groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_4flbx")
-Bullet = ExtResource("2_onrkg")
+hurtbox = NodePath("Hurtbox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sh265")
@@ -30,8 +30,15 @@ sprite_frames = SubResource("SpriteFrames_4flbx")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(12, 0)
 
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_mask = 4
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("invulnerability_timer")]
+collision_mask = 0
+script = ExtResource("2_onrkg")
+invulnerability_timer = NodePath("Invulnerability")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Invulnerability" type="Timer" parent="Hurtbox"]
+one_shot = true
+
+[connection signal="timeout" from="Hurtbox/Invulnerability" to="Hurtbox" method="_on_invulnerability_timeout"]

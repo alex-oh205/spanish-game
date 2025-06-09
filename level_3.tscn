@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://c5hdt3myuyws6"]
+[gd_scene load_steps=4 format=3 uid="uid://c5hdt3myuyws6"]
+
+[ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_1fhj5"]
+[ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_16pka"]
+
+[sub_resource type="TileSet" id="TileSet_j8bo8"]
 
 [node name="Level3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_j8bo8")
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("1_1fhj5")]
+visible = false
+position = Vector2(569, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_16pka")]
