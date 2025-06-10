@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Spanish Game"
-run/main_scene="uid://djegekack72tq"
+run/main_scene="uid://bv47f5ydv1sp5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GameManager="*res://Scripts/game_manager.gd"
 
 [display]
 
@@ -58,9 +54,5 @@ shoot={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="damager"
+2d_physics/layer_2="bullet"
 2d_physics/layer_3="enemy"
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)

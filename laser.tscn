@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2jaobeb5giu3"]
+
+[ext_resource type="Script" uid="uid://bmgyhv5jylmr0" path="res://Scripts/damager.gd" id="1_6vqwg"]
+[ext_resource type="Texture2D" uid="uid://c0cqvkrw3t3y0" path="res://Assets/Art/Textures/duolingo_angry.png" id="2_6vqwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vqwg"]
+size = Vector2(6, 1294)
+
+[sub_resource type="Gradient" id="Gradient_6vqwg"]
+offsets = PackedFloat32Array(0, 0.512048, 1)
+colors = PackedColorArray(1, 0.3, 0, 1, 1, 0, 0, 1, 1, 0.3, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6b45"]
+gradient = SubResource("Gradient_6vqwg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6b45"]
+size = Vector2(18, 1292)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vqwg"]
+radius = 44.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_6vqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-19, 689)
+shape = SubResource("RectangleShape2D_6vqwg")
+
+[node name="Bird" type="Sprite2D" parent="."]
+position = Vector2(0, 41)
+scale = Vector2(0.489451, 0.489451)
+texture = ExtResource("2_6vqwg")
+
+[node name="Laser1" type="Sprite2D" parent="."]
+position = Vector2(-19, 689)
+scale = Vector2(0.0703125, 1296)
+texture = SubResource("GradientTexture1D_g6b45")
+
+[node name="Laser2" type="Sprite2D" parent="."]
+position = Vector2(20, 690)
+scale = Vector2(0.0703125, 1296)
+texture = SubResource("GradientTexture1D_g6b45")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(20, 690)
+shape = SubResource("RectangleShape2D_g6b45")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(0, 50)
+shape = SubResource("CircleShape2D_6vqwg")

@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var speed: float = 200 # speed in pixels/sec
+@export var speed: float = 300 # speed in pixels/sec
 @export var hurtbox: Area2D
 var last_time_shot: float = 0 # in milliseconds
 var flash_interval = 50

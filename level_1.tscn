@@ -4,14 +4,16 @@
 [ext_resource type="Script" uid="uid://dlpfhrcdpd7o2" path="res://Scripts/level_1.gd" id="1_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://bf548w3valsr8" path="res://enemy_mobile.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://c2jaobeb5giu3" path="res://laser.tscn" id="3_rka8t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihfcg"]
 
-[sub_resource type="TileSet" id="TileSet_j7kpp"]
-
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("ui", "player")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("spawn_timer", "laser_timer", "ui", "player")]
 script = ExtResource("1_ihfcg")
 enemy = ExtResource("2_hbghi")
+laser = ExtResource("3_rka8t")
+spawn_timer = NodePath("SpawnTimer")
+laser_timer = NodePath("LaserTimer")
 ui = NodePath("CanvasLayer/InGameUI")
 player = NodePath("Player")
 
@@ -37,14 +39,17 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ihfcg")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
-tile_set = SubResource("TileSet_j7kpp")
 format = 2
 
 [node name="Player" parent="." instance=ExtResource("1_3hls8")]
-visible = false
 position = Vector2(569, 324)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource("3_hn12h")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LaserTimer" type="Timer" parent="."]
+one_shot = true

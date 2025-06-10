@@ -2,9 +2,8 @@ class_name Level extends Node2D
 
 @export var ui: Control
 @export var player: CharacterBody2D
-#@export var boss: CharacterBody2D
+@export var enemy_turn_duration = 20000
 var turn = Turn.PLAYER
-var enemy_turn_duration = 20000
 var enemy_turn_start_time = 0
 var damagers: Array = []
 
@@ -15,12 +14,16 @@ enum Turn {
 
 func _ready() -> void:
 	GameManager.switch_turn.connect(switch_turn)
+	GameManager.lose_level.connect(switch_turn.bind(true))
 
 func _process(delta: float) -> void:
 	if turn == Turn.ENEMY:
 		enemy_loop()
 		if Time.get_ticks_msec() - enemy_turn_start_time > enemy_turn_duration:
 			switch_turn()
+
+func enemy_begin():
+	pass
 
 func enemy_loop():
 	pass
@@ -31,15 +34,17 @@ func reset_level():
 			damager.queue_free()
 	damagers = []
 
-func switch_turn():
-	ui.toggle_menu()
+func switch_turn(lose=false):
+	ui.toggle_menu(lose)
 	if turn == Turn.PLAYER:
 		turn = Turn.ENEMY
 		player.reset()
 		enemy_turn_start_time = Time.get_ticks_msec()
+		enemy_begin()
 	else:
 		turn = Turn.PLAYER
 		player.disable()
 		reset_level()
-		ui.increase_anger(1)
-		ui.show_actions()
+		if not lose:
+			ui.increase_anger(1)
+			ui.show_actions()

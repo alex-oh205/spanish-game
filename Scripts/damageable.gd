@@ -1,7 +1,7 @@
 class_name Damageable extends Area2D
 
 @export var max_health: int = 100
-@export var invulnerability_duration = 2 # in seconds
+@export var invulnerability_duration = 1 # in seconds
 @export var invulnerability_timer: Timer
 var health = max_health
 var is_invulnerable = false
@@ -16,10 +16,11 @@ func take_damage(damage: int) -> void:
 		is_invulnerable = true
 		health -= damage
 		health = clamp(health, 0, max_health)
-		if health == 0:
-			await get_tree().create_timer(1).timeout
-			GameManager.lose_level.emit()
 		GameManager.player_health_changed.emit(health, max_health)
+		if health == 0:
+			GameManager.lose_level.emit()
+			await get_tree().create_timer(3).timeout
+			GameManager.restart_level()
 
 func heal(amount: int) -> void:
 	health += amount
