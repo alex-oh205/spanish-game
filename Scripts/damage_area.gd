@@ -3,18 +3,23 @@ extends Damager
 @export var collision_shape: CollisionShape2D
 @export var polygon: Polygon2D
 @export var warn_timer: Timer
-@export var warn_time: int = 1
+@export var warn_time: float = 2
 @export var death_timer: Timer
-@export var duration: int = 3
+@export var duration: float = 0.5
 
-var warning_color = Color(1, 0, 0, 0.2)  # Initial faint color for the warning state
-var active_color = Color(1, 0, 0, 1)  # Red color for active damage state
+var warning_color = Color(1, 1, 0, 0.2)  # Initial faint color for the warning state
+var active_color = Color(1, 1, 0, 1)  # Red color for active damage state
+var no_shrink: bool = false
 
 func _ready() -> void:
-	polygon.modulate = warning_color
+	polygon.modulate = Color(1, 1, 0, 0)
 	collision_shape.disabled = true
+	add_tween("modulate", warning_color, warn_time, Tween.TRANS_SINE, Tween.EASE_OUT)
 	warn_timer.start(warn_time)
-	death_timer.start(duration)
+
+func add_tween(property: String, value, duration: float, transition: Tween.TransitionType = Tween.TRANS_LINEAR, ease: Tween.EaseType = Tween.EASE_IN_OUT):
+	var tween := get_tree().create_tween()
+	tween.tween_property(polygon, property, value, duration).set_trans(transition).set_ease(ease)
 
 func set_collision_shape(shape: Shape2D):
 	collision_shape.shape = shape
@@ -53,6 +58,10 @@ func _on_warn_timer_timeout() -> void:
 	
 	# Enable collision detection for damage
 	collision_shape.disabled = false
+	
+	if not no_shrink:
+		add_tween("scale", Vector2(0, 0), duration, Tween.TRANS_BACK, Tween.EASE_IN)
+	death_timer.start(duration)
 
 func _on_death_timer_timeout() -> void:
 	queue_free()

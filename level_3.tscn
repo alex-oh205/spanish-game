@@ -8,8 +8,12 @@
 
 [sub_resource type="TileSet" id="TileSet_j8bo8"]
 
-[node name="Level3" type="Node2D"]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("ui", "player", "overlay")]
 script = ExtResource("1_16pka")
+ui = NodePath("CanvasLayer/InGameUI")
+player = NodePath("Player")
+overlay = NodePath("CanvasLayer/Overlay")
+level_id = 2
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
@@ -44,3 +48,16 @@ position = Vector2(569, 324)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_16pka")]
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BulletTimer" type="Timer" parent="."]

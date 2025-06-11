@@ -1,19 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0qmg13mgdace"]
+[gd_scene load_steps=8 format=3 uid="uid://d0qmg13mgdace"]
 
 [ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_nmjpi"]
 [ext_resource type="Script" uid="uid://dt11yaqqodaiq" path="res://Scripts/level_2.gd" id="1_xdadj"]
 [ext_resource type="PackedScene" uid="uid://cb6fg0uxqkcy1" path="res://damage_area.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_xdadj"]
+[ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="3_n7ypv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1y8me"]
 
 [sub_resource type="TileSet" id="TileSet_1y8me"]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("ui", "player")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("small_area_timer", "big_area_timer", "bullet_timer", "ui", "player", "overlay")]
 script = ExtResource("1_xdadj")
 damage_area = ExtResource("2_1y8me")
+bullet = ExtResource("3_n7ypv")
+small_area_timer = NodePath("SmallAreaTimer")
+big_area_timer = NodePath("BigAreaTimer")
+bullet_timer = NodePath("BulletTimer")
 ui = NodePath("CanvasLayer/InGameUI")
 player = NodePath("Player")
+overlay = NodePath("CanvasLayer/Overlay")
+level_id = 1
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
@@ -43,8 +50,29 @@ format = 2
 
 [node name="Player" parent="." instance=ExtResource("1_nmjpi")]
 visible = false
+z_index = 1
 position = Vector2(569, 324)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_xdadj")]
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SmallAreaTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BigAreaTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletTimer" type="Timer" parent="."]
+one_shot = true

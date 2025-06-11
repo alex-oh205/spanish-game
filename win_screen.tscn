@@ -5,8 +5,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ki6y5"]
 font_size = 48
 
-[node name="WinScreen" type="CanvasLayer"]
+[node name="WinScreen" type="CanvasLayer" node_paths=PackedStringArray("overlay")]
 script = ExtResource("1_l2arl")
+overlay = NodePath("Overlay")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -63,6 +64,17 @@ text = "QUIT"
 [node name="Separator" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+
+[node name="Overlay" type="ColorRect" parent="."]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -6,7 +6,7 @@ extends Control
 @export var enemy_health_bar: ProgressBar
 @export var anger_meter: ProgressBar
 @export var player_health_bar: ProgressBar
-@export var enemy_image: TextureRect
+@export var enemy_image: AnimatedSprite2D
 
 var enemy_dialog: Array = [
 	"Ayer perdiste tu racha. Ya sabes lo que pasa ahora.",
@@ -56,11 +56,21 @@ var questions: Array = [
 var enemy_health = 75
 var anger = 1
 var max_anger = 10
+var enemy_image_height = 250
 var current_question: Dictionary
 var current_answer: int
+var level_id: int
 
 func _ready() -> void:
-	enemy_image.texture = load(GameManager.enemy_images[GameManager.current_scene - 1])
+	enemy_image.sprite_frames = load(GameManager.enemy_frames[level_id])
+	enemy_image.play("enemy_anim")
+	if level_id == 2:
+		enemy_image_height = 350
+		enemy_image.offset = Vector2(-20, -40)
+	var height_scale = 1.0 * enemy_image_height / enemy_image.sprite_frames.get_frame_texture("enemy_anim", 0).get_height()
+	enemy_image.scale = Vector2(height_scale, height_scale)
+	if level_id == 1:
+		enemy_image.texture_filter = TextureFilter.TEXTURE_FILTER_LINEAR
 	dialog.text = enemy_dialog[GameManager.current_scene - 1]
 	show_actions()
 	enemy_health_bar.max_value = enemy_health
@@ -84,8 +94,7 @@ func damage_enemy(damage) -> bool:
 	enemy_health = clamp(enemy_health, 0, 100)
 	if enemy_health == 0:
 		enemy_health_bar.value = enemy_health
-		await get_tree().create_timer(1).timeout
-		win_level()
+		GameManager.win_level.emit()
 		return true
 	enemy_health_bar.value = enemy_health
 	return false
@@ -159,6 +168,3 @@ func ask_question() -> int:
 	var button_id = await GameManager.answered
 	current_answer = (current_question["answer"] + shift) % 4
 	return button_id
-
-func win_level():
-	GameManager.advance_scene()

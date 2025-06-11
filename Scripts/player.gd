@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 
 func reset():
 	position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
-	rotation = PI / 2
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 	hurtbox.reset_invulnerability()
 
@@ -34,6 +33,4 @@ func disable():
 
 func get_input() -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
-	if direction.length() > 0:
-		rotation = transform.x.normalized().lerp(direction, 0.2).angle()
 	velocity = direction * speed

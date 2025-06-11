@@ -9,10 +9,10 @@ var scenes: Array = [
 	"res://win_screen.tscn",
 ]
 
-var enemy_images: Array = [
-	"res://Assets/Art/Textures/duolingo_angry.png",
-	"res://",
-	"res://",
+var enemy_frames: Array = [
+	"res://Assets/Art/AnimationFrames/duolingo_frames.tres",
+	"res://Assets/Art/AnimationFrames/wooly_frames.tres",
+	"res://Assets/Art/AnimationFrames/guzman_frames.tres",
 ]
 
 signal answered
@@ -20,6 +20,7 @@ signal switch_turn
 signal player_health_changed
 signal heal
 signal lose_level
+signal win_level
 
 func load_scene(scene_num) -> void:
 	get_tree().change_scene_to_file(scenes[scene_num])

@@ -2,10 +2,14 @@ class_name Level extends Node2D
 
 @export var ui: Control
 @export var player: CharacterBody2D
-@export var enemy_turn_duration = 20000
+@export var overlay: ColorRect
+@export var enemy_turn_duration = 15000
+@export var level_id: int
 var turn = Turn.PLAYER
 var enemy_turn_start_time = 0
 var damagers: Array = []
+@onready var viewport_x = get_viewport().size.x
+@onready var viewport_y = get_viewport().size.y
 
 enum Turn {
 	PLAYER,
@@ -15,6 +19,19 @@ enum Turn {
 func _ready() -> void:
 	GameManager.switch_turn.connect(switch_turn)
 	GameManager.lose_level.connect(switch_turn.bind(true))
+	GameManager.win_level.connect(fade_out.bind(GameManager.advance_scene))
+	ui.level_id = level_id
+	fade_in()
+
+func fade_in():
+	overlay.visible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(overlay, "color", Color(0, 0, 0, 0), 1)
+
+func fade_out(function: Callable):
+	var tween = get_tree().create_tween()
+	tween.tween_property(overlay, "color", Color(0, 0, 0, 1), 1)
+	tween.connect("finished", function)
 
 func _process(delta: float) -> void:
 	if turn == Turn.ENEMY:
@@ -48,3 +65,6 @@ func switch_turn(lose=false):
 		if not lose:
 			ui.increase_anger(1)
 			ui.show_actions()
+	if lose:
+		await get_tree().create_timer(2).timeout
+		fade_out(GameManager.restart_level)

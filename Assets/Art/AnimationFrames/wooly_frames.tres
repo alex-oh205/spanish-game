@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://kjd7tbckswb2"]
+
+[ext_resource type="Texture2D" uid="uid://43i4xupm78mb" path="res://Assets/Art/Textures/wooly_spritesheet.png" id="1_1rn6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udalq"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(0, 0, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyuji"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(601, 0, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cqji"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(1202, 0, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18o48"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(0, 601, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c55np"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(601, 601, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfqve"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(1202, 601, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a8fs"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(0, 1202, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5cxp"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(601, 1202, 601, 601)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdjr1"]
+atlas = ExtResource("1_1rn6d")
+region = Rect2(1202, 1202, 601, 601)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udalq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyuji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cqji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18o48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c55np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfqve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a8fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5cxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdjr1")
+}],
+"loop": true,
+"name": &"enemy_anim",
+"speed": 10.0
+}]

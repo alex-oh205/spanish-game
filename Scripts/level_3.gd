@@ -1,20 +1,19 @@
 extends Level
 
-@export var enemy: PackedScene
+@export var bullet: PackedScene
 var last_time_spawned = 0
-var spawn_delay = 500
+var spawn_delay = 0.5
 
 func enemy_loop():
-	spawn_delay = 500 - ui.anger * 30
+	spawn_delay = 0.5 - ui.anger * 0.03
 	if last_time_spawned == 0 or Time.get_ticks_msec() - last_time_spawned > spawn_delay:
 		last_time_spawned = Time.get_ticks_msec()
-		spawn_enemy()
+		spawn_bullets(20 + ui.anger * 5)
 
-func spawn_enemy():
-	var e = enemy.instantiate()
-	var angle = randf_range(0, 2 * PI)
-	var distance = sqrt(get_viewport().size.x ** 2 + get_viewport().size.y ** 2) / 2
-	e.position = Vector2(get_viewport().size.x / 2 + distance * cos(angle),
-						 get_viewport().size.y / 2 + distance * sin(angle))
-	add_child(e)
-	damagers.append(e)
+func spawn_bullets(amount):
+	for i in range(amount):
+		var b = bullet.instantiate()
+		b.rotation = 2 * PI / amount * i
+		b.position = Vector2(viewport_x / 2, viewport_y)
+		add_child(b)
+		damagers.append(b)

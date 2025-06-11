@@ -19,8 +19,6 @@ func take_damage(damage: int) -> void:
 		GameManager.player_health_changed.emit(health, max_health)
 		if health == 0:
 			GameManager.lose_level.emit()
-			await get_tree().create_timer(3).timeout
-			GameManager.restart_level()
 
 func heal(amount: int) -> void:
 	health += amount

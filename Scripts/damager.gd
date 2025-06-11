@@ -1,6 +1,6 @@
 class_name Damager extends Area2D
 
-@export var damage: int = 10
+@export var damage: int = 20
 
 func _physics_process(delta: float) -> void:
 	check_collisions()

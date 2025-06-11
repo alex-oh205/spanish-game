@@ -11,6 +11,7 @@
 
 [node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("damager")]
 collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_v7oki")
 damager = NodePath("Damager")
 
@@ -25,5 +26,10 @@ texture = SubResource("CanvasTexture_v7oki")
 
 [node name="CollisionShape2D" parent="Damager" index="0"]
 shape = SubResource("CapsuleShape2D_t4vbm")
+
+[node name="DeathTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 
 [editable path="Damager"]

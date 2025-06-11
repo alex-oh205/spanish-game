@@ -1,51 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2jaobeb5giu3"]
+[gd_scene load_steps=9 format=3 uid="uid://c2jaobeb5giu3"]
 
-[ext_resource type="Script" uid="uid://bmgyhv5jylmr0" path="res://Scripts/damager.gd" id="1_6vqwg"]
-[ext_resource type="Texture2D" uid="uid://c0cqvkrw3t3y0" path="res://Assets/Art/Textures/duolingo_angry.png" id="2_6vqwg"]
+[ext_resource type="Script" path="res://laser.gd" id="1_g6b45"]
+[ext_resource type="SpriteFrames" uid="uid://bbpluecsembqo" path="res://Assets/Art/AnimationFrames/duolingo_frames.tres" id="2_g6b45"]
+[ext_resource type="Texture2D" uid="uid://pgf4umfwqhtu" path="res://Assets/Art/Textures/laser_spritesheet.png" id="3_7vci3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5cg"]
+texture = ExtResource("3_7vci3")
+texture_region_size = Vector2i(50, 50)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 0.1
+0:0/animation_frame_1/duration = 0.1
+0:0/animation_frame_2/duration = 0.1
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_roivt"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_xw5cg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vqwg"]
-size = Vector2(6, 1294)
-
-[sub_resource type="Gradient" id="Gradient_6vqwg"]
-offsets = PackedFloat32Array(0, 0.512048, 1)
-colors = PackedColorArray(1, 0.3, 0, 1, 1, 0, 0, 1, 1, 0.3, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6b45"]
-gradient = SubResource("Gradient_6vqwg")
+size = Vector2(14, 1200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6b45"]
-size = Vector2(18, 1292)
+size = Vector2(14, 1200)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vqwg"]
 radius = 44.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 2
-script = ExtResource("1_6vqwg")
+script = ExtResource("1_g6b45")
+
+[node name="Bird" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -9)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_g6b45")
+animation = &"enemy_anim"
+autoplay = "enemy_anim"
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(0, -62)
+tile_set = SubResource("TileSet_roivt")
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 0, 1342177280, 196607, 0, 1342177280, 262143, 0, 1342177280, 327679, 0, 1342177280, 393215, 0, 1342177280, 458751, 0, 1342177280, 524287, 0, 1342177280, 589823, 0, 1342177280, 655359, 0, 1342177280, 720895, 0, 1342177280, 786431, 0, 1342177280, 851967, 0, 1342177280, 917503, 0, 1342177280, 983039, 0, 1342177280, 1048575, 0, 1342177280, 1114111, 0, 1342177280, 1179647, 0, 1342177280, 1245183, 0, 1342177280, 1310719, 0, 1342177280, 1376255, 0, 1342177280, 1441791, 0, 1342177280, 1507327, 0, 1342177280, 1572863, 0, 1342177280, 1638399, 0, 1342177280, 65536, 0, 1342177280, 131072, 0, 1342177280, 196608, 0, 1342177280, 262144, 0, 1342177280, 327680, 0, 1342177280, 393216, 0, 1342177280, 458752, 0, 1342177280, 524288, 0, 1342177280, 589824, 0, 1342177280, 655360, 0, 1342177280, 720896, 0, 1342177280, 786432, 0, 1342177280, 851968, 0, 1342177280, 917504, 0, 1342177280, 983040, 0, 1342177280, 1048576, 0, 1342177280, 1114112, 0, 1342177280, 1179648, 0, 1342177280, 1245184, 0, 1342177280, 1310720, 0, 1342177280, 1376256, 0, 1342177280, 1441792, 0, 1342177280, 1507328, 0, 1342177280, 1572864, 0, 1342177280)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-19, 689)
+position = Vector2(-23, 588)
 shape = SubResource("RectangleShape2D_6vqwg")
 
-[node name="Bird" type="Sprite2D" parent="."]
-position = Vector2(0, 41)
-scale = Vector2(0.489451, 0.489451)
-texture = ExtResource("2_6vqwg")
-
-[node name="Laser1" type="Sprite2D" parent="."]
-position = Vector2(-19, 689)
-scale = Vector2(0.0703125, 1296)
-texture = SubResource("GradientTexture1D_g6b45")
-
-[node name="Laser2" type="Sprite2D" parent="."]
-position = Vector2(20, 690)
-scale = Vector2(0.0703125, 1296)
-texture = SubResource("GradientTexture1D_g6b45")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(20, 690)
+position = Vector2(27, 588)
 shape = SubResource("RectangleShape2D_g6b45")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0, 50)
 shape = SubResource("CircleShape2D_6vqwg")
