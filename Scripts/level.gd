@@ -21,6 +21,7 @@ func _ready() -> void:
 	GameManager.lose_level.connect(switch_turn.bind(true))
 	GameManager.win_level.connect(fade_out.bind(GameManager.advance_scene))
 	ui.level_id = level_id
+	ui.load_enemy()
 	fade_in()
 
 func fade_in():

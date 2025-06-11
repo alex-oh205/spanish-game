@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://dt11yaqqodaiq" path="res://Scripts/level_2.gd" id="1_xdadj"]
 [ext_resource type="PackedScene" uid="uid://cb6fg0uxqkcy1" path="res://damage_area.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_xdadj"]
-[ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="3_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://by0rw12wdij0p" path="res://sound_bullet.tscn" id="3_n7ypv"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1y8me"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7ypv"]
 
 [sub_resource type="TileSet" id="TileSet_1y8me"]
 
@@ -25,23 +25,23 @@ level_id = 1
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(0, 324)
+position = Vector2(30, 324)
 rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_1y8me")
+shape = SubResource("WorldBoundaryShape2D_n7ypv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 0)
+position = Vector2(576, 30)
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_1y8me")
+shape = SubResource("WorldBoundaryShape2D_n7ypv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 648)
-shape = SubResource("WorldBoundaryShape2D_1y8me")
+position = Vector2(576, 618)
+shape = SubResource("WorldBoundaryShape2D_n7ypv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(1152, 324)
+position = Vector2(1122, 324)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_1y8me")
+shape = SubResource("WorldBoundaryShape2D_n7ypv")
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false

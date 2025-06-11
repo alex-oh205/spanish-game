@@ -53,7 +53,7 @@ var questions: Array = [
 	},
 ]
 
-var enemy_health = 75
+var enemy_health = 8
 var anger = 1
 var max_anger = 10
 var enemy_image_height = 250
@@ -62,6 +62,14 @@ var current_answer: int
 var level_id: int
 
 func _ready() -> void:
+	show_actions()
+	enemy_health_bar.max_value = enemy_health
+	enemy_health_bar.value = enemy_health
+	anger_meter.max_value = max_anger
+	anger_meter.value = 1
+	GameManager.player_health_changed.connect(on_player_health_changed)
+
+func load_enemy():
 	enemy_image.sprite_frames = load(GameManager.enemy_frames[level_id])
 	enemy_image.play("enemy_anim")
 	if level_id == 2:
@@ -71,13 +79,7 @@ func _ready() -> void:
 	enemy_image.scale = Vector2(height_scale, height_scale)
 	if level_id == 1:
 		enemy_image.texture_filter = TextureFilter.TEXTURE_FILTER_LINEAR
-	dialog.text = enemy_dialog[GameManager.current_scene - 1]
-	show_actions()
-	enemy_health_bar.max_value = enemy_health
-	enemy_health_bar.value = enemy_health
-	anger_meter.max_value = max_anger
-	anger_meter.value = 1
-	GameManager.player_health_changed.connect(on_player_health_changed)
+	dialog.text = enemy_dialog[level_id]
 
 func toggle_menu(lose=false):
 	$ActionsUI.visible = not $ActionsUI.visible
@@ -133,7 +135,7 @@ func turn_end(choice: int):
 func _on_attack_pressed() -> void:
 	var choice = await ask_question()
 	if choice == current_answer:
-		if await damage_enemy(10): # Returns true if enemy is defeated
+		if await damage_enemy(1): # Returns true if enemy is defeated
 			return
 	else:
 		increase_anger(2)

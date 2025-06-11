@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2jaobeb5giu3"]
 
-[ext_resource type="Script" path="res://laser.gd" id="1_g6b45"]
+[ext_resource type="Script" uid="uid://cvi7054gmn0e0" path="res://laser.gd" id="1_g6b45"]
 [ext_resource type="SpriteFrames" uid="uid://bbpluecsembqo" path="res://Assets/Art/AnimationFrames/duolingo_frames.tres" id="2_g6b45"]
 [ext_resource type="Texture2D" uid="uid://pgf4umfwqhtu" path="res://Assets/Art/Textures/laser_spritesheet.png" id="3_7vci3"]
 

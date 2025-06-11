@@ -18,18 +18,20 @@ func enemy_loop():
 	if spawn_timer.is_stopped():
 		spawn_enemy()
 		spawn_timer.start(spawn_delay)
-	if ui.anger > 2:
-		if laser_timer.is_stopped():
-			if ui.anger > 4 and randi_range(0, 1) == 0:
+	if laser_timer.is_stopped():
+		if ui.enemy_health < 7:
+			if ui.enemy_health < 5 and randi_range(0, 1) == 0:
 				laser_delay = 8
 				spawn_laser_rotate()
+			elif ui.enemy_health < 3 and randi_range(0, 1) == 0:
+				spawn_laser_rotate_corner()
 			else:
 				spawn_laser_straight()
 			laser_timer.start(laser_delay)
-		elif laser_timer.time_left < laser_timer.wait_time - laser_duration:
-			if current_laser != null:
-				current_laser.fade()
-				current_laser = null
+	elif laser_timer.time_left < laser_timer.wait_time - laser_duration:
+		if current_laser != null:
+			current_laser.fade()
+			current_laser = null
 
 func spawn_enemy():
 	var e = enemy.instantiate()
@@ -54,7 +56,7 @@ func spawn_laser_straight():
 			tween.tween_property(l, "position:x", viewport_x - 200, laser_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	else:
 		var flip = randi_range(0, 1)
-		l.position = Vector2((1 - flip) * (viewport_x - 60), randi_range(0, 1) * viewport_y)
+		l.position = Vector2((1 - flip) * (viewport_x - 120) + 60, randi_range(0, 1) * viewport_y)
 		l.rotation = PI / 2 + flip * PI
 		if l.position.y > viewport_y / 2:
 			tween.tween_property(l, "position:y", 200, laser_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -71,6 +73,26 @@ func spawn_laser_rotate():
 	l.rotation = randf_range(0, 2 * PI)
 	var tween = get_tree().create_tween()
 	tween.tween_property(l, "rotation", l.rotation + dir * 2 * PI, 6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	add_child(l)
+	damagers.append(l)
+	current_laser = l
+
+func spawn_laser_rotate_corner():
+	var l = laser.instantiate()
+	var loc = Vector2(randi_range(0, 1), randi_range(0, 1))
+	l.position = Vector2(loc.x * (viewport_x - 120) + 60, loc.y * (viewport_y - 120) + 60)
+	var dir = [-1, 1].pick_random()
+	match loc:
+		Vector2(0, 0):
+			l.rotation = (-dir - 1) * PI / 4
+		Vector2(0, 1):
+			l.rotation = (-dir - 3) * PI / 4
+		Vector2(1, 0):
+			l.rotation = (-dir + 1) * PI / 4
+		Vector2(1, 1):
+			l.rotation = (-dir + 3) * PI / 4
+	var tween = get_tree().create_tween()
+	tween.tween_property(l, "rotation", l.rotation + dir * (80 * PI / 180), 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	add_child(l)
 	damagers.append(l)
 	current_laser = l

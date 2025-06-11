@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5ijcwrjsyl0v"]
+[gd_scene load_steps=27 format=3 uid="uid://c5ijcwrjsyl0v"]
 
 [ext_resource type="Script" uid="uid://whyqol0dcixu" path="res://Scripts/in_game_ui.gd" id="1_4v80v"]
 [ext_resource type="StyleBox" uid="uid://bkib3mq7do4ef" path="res://Assets/Art/Styles/red_border.tres" id="1_cwbuu"]
+[ext_resource type="Theme" uid="uid://b6c835wfhko0t" path="res://Assets/Art/Themes/main_theme.tres" id="1_h3j15"]
 [ext_resource type="StyleBox" uid="uid://ccer34dxliwsy" path="res://Assets/Art/Styles/green_border.tres" id="2_4v80v"]
 [ext_resource type="SpriteFrames" uid="uid://bbpluecsembqo" path="res://Assets/Art/AnimationFrames/duolingo_frames.tres" id="2_ukwlx"]
 [ext_resource type="StyleBox" uid="uid://dqa781n3gdtmr" path="res://Assets/Art/Styles/orange_border.tres" id="2_uusyb"]
@@ -12,7 +13,13 @@
 [ext_resource type="StyleBox" uid="uid://cfais6ns0oxuf" path="res://Assets/Art/Styles/yellow_border.tres" id="4_uusyb"]
 [ext_resource type="Texture2D" uid="uid://dc4aroyc6vgxf" path="res://Assets/Art/Textures/heal_icon.png" id="5_ukwlx"]
 
-[sub_resource type="Theme" id="Theme_dpq86"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3j15"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ep3pr"]
 content_margin_left = 20.0
@@ -25,10 +32,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_ukwlx"]
 font_size = 18
@@ -44,10 +47,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 0.8, 0.5, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uusyb"]
 
@@ -58,10 +57,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 0.180392, 0.180392, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjjbm"]
 bg_color = Color(0.042, 0.3, 0.0463, 1)
@@ -70,10 +65,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.14, 1, 0.154333, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4etj"]
 bg_color = Color(0.042, 0.1366, 0.3, 1)
@@ -82,10 +73,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.14, 0.455333, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkija"]
 bg_color = Color(0.3, 0.259, 0.054, 1)
@@ -94,10 +81,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 0.863333, 0.18, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qsvx"]
 bg_color = Color(0, 0, 0, 1)
@@ -143,7 +126,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_dpq86")
+theme = ExtResource("1_h3j15")
 script = ExtResource("1_4v80v")
 dialog = NodePath("ActionsUI/Background/MarginContainer/BottomContainer/DialogBox/Dialog")
 actions = NodePath("ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions")
@@ -152,6 +135,15 @@ enemy_health_bar = NodePath("HUD/EnemyHealthContainer/EnemyHealthBar")
 anger_meter = NodePath("HUD/AngerMeterContainer/AngerMeter")
 player_health_bar = NodePath("HUD/PlayerHealthContainer/PlayerHealthBar")
 enemy_image = NodePath("ActionsUI/Background/MarginContainer/EnemyContainer/Control/EnemyImage")
+
+[node name="Border" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3j15")
 
 [node name="ActionsUI" type="MarginContainer" parent="."]
 layout_mode = 1

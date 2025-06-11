@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://by0rw12wdij0p"]
+
+[ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="1_d0oub"]
+[ext_resource type="Texture2D" uid="uid://dx82vvhws5jab" path="res://Assets/Art/Textures/soundwave_spritesheet.png" id="2_bf4y4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf4y4"]
+size = Vector2(8, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg5lm"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k2jg"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql8a8"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhmic"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ggt5"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(150, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npbse"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(300, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdtil"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(0, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xivgg"]
+atlas = ExtResource("2_bf4y4")
+region = Rect2(150, 300, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxgf1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg5lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql8a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhmic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ggt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npbse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdtil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xivgg")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 20.0
+}]
+
+[node name="SoundBullet" instance=ExtResource("1_d0oub")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(17, 0)
+shape = SubResource("RectangleShape2D_bf4y4")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+rotation = 0.165702
+scale = Vector2(0.546667, 0.546667)
+sprite_frames = SubResource("SpriteFrames_uxgf1")
+animation = &"spawn"
+autoplay = "spawn"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="Damager" index="0"]
+position = Vector2(17, 0)
+shape = SubResource("RectangleShape2D_bf4y4")
+
+[editable path="Damager"]

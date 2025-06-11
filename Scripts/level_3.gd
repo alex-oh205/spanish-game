@@ -9,6 +9,8 @@ func enemy_loop():
 	if last_time_spawned == 0 or Time.get_ticks_msec() - last_time_spawned > spawn_delay:
 		last_time_spawned = Time.get_ticks_msec()
 		spawn_bullets(20 + ui.anger * 5)
+	if ui.enemy_health < 7:
+		pass
 
 func spawn_bullets(amount):
 	for i in range(amount):

@@ -1,23 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv47f5ydv1sp5"]
+[gd_scene load_steps=4 format=3 uid="uid://bv47f5ydv1sp5"]
 
 [ext_resource type="Script" uid="uid://d4nku3lue6tpt" path="res://Scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Theme" uid="uid://b6c835wfhko0t" path="res://Assets/Art/Themes/main_theme.tres" id="2_7vrkn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vrkn"]
 font_size = 48
 
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("overlay")]
 script = ExtResource("1_06t4h")
-overlay = NodePath("Overlay")
+overlay = NodePath("MenuUI/Overlay")
 
-[node name="Control" type="Control" parent="."]
+[node name="MenuUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_7vrkn")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,12 +31,12 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="TitleContainer" type="MarginContainer" parent="Control/MarginContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="MenuUI/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_top = 100
 
-[node name="Title" type="Label" parent="Control/MarginContainer/TitleContainer"]
+[node name="Title" type="Label" parent="MenuUI/MarginContainer/TitleContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Title"
@@ -42,39 +44,40 @@ label_settings = SubResource("LabelSettings_7vrkn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 20
 
-[node name="StartButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MenuUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "START"
 
-[node name="InstructionsButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="InstructionsButton" type="Button" parent="MenuUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "INSTRUCTIONS"
 
-[node name="QuitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MenuUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "QUIT"
 
-[node name="Separator" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Separator" type="Control" parent="MenuUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="Overlay" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="MenuUI"]
 visible = false
 z_index = 10
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -83,5 +86,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MenuUI/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuUI/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dgr4t16ufv4" path="res://Scripts/level_3.gd" id="1_16pka"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_16pka"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j8bo8"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16pka"]
 
 [sub_resource type="TileSet" id="TileSet_j8bo8"]
 
@@ -15,26 +15,26 @@ player = NodePath("Player")
 overlay = NodePath("CanvasLayer/Overlay")
 level_id = 2
 
-[node name="WorldBoundary" type="StaticBody2D" parent="."]
+[node name="WorldBoundary2" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(0, 324)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary2"]
+position = Vector2(30, 324)
 rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_j8bo8")
+shape = SubResource("WorldBoundaryShape2D_16pka")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 0)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary2"]
+position = Vector2(576, 30)
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_j8bo8")
+shape = SubResource("WorldBoundaryShape2D_16pka")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 648)
-shape = SubResource("WorldBoundaryShape2D_j8bo8")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary2"]
+position = Vector2(576, 618)
+shape = SubResource("WorldBoundaryShape2D_16pka")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(1152, 324)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary2"]
+position = Vector2(1122, 324)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_j8bo8")
+shape = SubResource("WorldBoundaryShape2D_16pka")
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false

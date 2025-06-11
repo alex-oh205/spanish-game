@@ -7,9 +7,9 @@ font_size = 48
 
 [node name="WinScreen" type="CanvasLayer" node_paths=PackedStringArray("overlay")]
 script = ExtResource("1_l2arl")
-overlay = NodePath("Overlay")
+overlay = NodePath("WinUI/Overlay")
 
-[node name="Control" type="Control" parent="."]
+[node name="WinUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="WinUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,12 +29,12 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="WinTextContainer" type="MarginContainer" parent="Control/MarginContainer"]
+[node name="WinTextContainer" type="MarginContainer" parent="WinUI/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_top = 100
 
-[node name="WinText" type="Label" parent="Control/MarginContainer/WinTextContainer"]
+[node name="WinText" type="Label" parent="WinUI/MarginContainer/WinTextContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "YOU WIN!!!"
@@ -42,32 +42,33 @@ label_settings = SubResource("LabelSettings_ki6y5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WinUI/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 20
 
-[node name="MenuButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="WinUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "RETURN TO MENU"
 
-[node name="QuitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="WinUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "QUIT"
 
-[node name="Separator" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Separator" type="Control" parent="WinUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="Overlay" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="WinUI"]
 visible = false
 z_index = 10
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -76,5 +77,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="WinUI/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="WinUI/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

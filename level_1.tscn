@@ -21,21 +21,21 @@ overlay = NodePath("CanvasLayer/Overlay")
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(0, 324)
+position = Vector2(30, 324)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ihfcg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 0)
+position = Vector2(576, 30)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_ihfcg")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(576, 648)
+position = Vector2(576, 618)
 shape = SubResource("WorldBoundaryShape2D_ihfcg")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundary"]
-position = Vector2(1152, 324)
+position = Vector2(1122, 324)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ihfcg")
 
