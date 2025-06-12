@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5ijcwrjsyl0v"]
+[gd_scene load_steps=27 format=3 uid="uid://c5ijcwrjsyl0v"]
 
 [ext_resource type="Script" uid="uid://whyqol0dcixu" path="res://Scripts/in_game_ui.gd" id="1_4v80v"]
 [ext_resource type="StyleBox" uid="uid://bkib3mq7do4ef" path="res://Assets/Art/Styles/red_border.tres" id="1_cwbuu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b4ec3wyluoejm" path="res://Scripts/answer_button.gd" id="3_uusyb"]
 [ext_resource type="Texture2D" uid="uid://gaccbq73w4c2" path="res://Assets/Art/Textures/negotiate_icon.png" id="4_l8h7b"]
 [ext_resource type="StyleBox" uid="uid://cfais6ns0oxuf" path="res://Assets/Art/Styles/yellow_border.tres" id="4_uusyb"]
+[ext_resource type="Texture2D" uid="uid://ckwtn3kn8lij3" path="res://Assets/Art/Textures/attack_icon.png" id="5_h3j15"]
 [ext_resource type="Texture2D" uid="uid://dc4aroyc6vgxf" path="res://Assets/Art/Textures/heal_icon.png" id="5_ukwlx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3j15"]
@@ -217,7 +218,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4plnj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4plnj")
 theme_override_styles/normal = ExtResource("2_uusyb")
 text = "Attack"
-icon = ExtResource("4_l8h7b")
+icon = ExtResource("5_h3j15")
 
 [node name="Negotiate" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions"]
 custom_minimum_size = Vector2(150, 100)

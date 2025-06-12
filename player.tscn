@@ -108,6 +108,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox") groups=["player"]]
+z_index = 1
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("1_4flbx")

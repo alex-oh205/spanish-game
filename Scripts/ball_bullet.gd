@@ -10,3 +10,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = velocity.bounce(hit.get_normal())
 			rotation = velocity.angle()
+
+func _on_death_timer_timeout() -> void:
+	fade_out(0.5)
+
+func fade_out(duration):
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D, "modulate:a", 0, duration)
+	tween.connect("finished", queue_free)

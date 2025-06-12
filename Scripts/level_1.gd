@@ -10,7 +10,7 @@ var current_laser: Area2D = null
 var laser_duration = 4
 
 func enemy_begin():
-	laser_timer.start(randf_range(3, 7) - ui.anger * 0.3)
+	laser_timer.start(randf_range(3, 4))
 
 func enemy_loop():
 	spawn_delay = 0.7 - ui.anger * 0.04

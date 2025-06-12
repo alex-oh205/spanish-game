@@ -238,7 +238,7 @@ var questions: Array = [
 			"Sal, levanta",
 			"Entre, levanta",
 			"Entre, no molestes",
-			"Sal, ayudame",
+			"Sal, ayúdame",
 		],
 		"answer": 3
 	},
@@ -504,23 +504,23 @@ func _on_attack_pressed() -> void:
 		if await damage_enemy(1): # Returns true if enemy is defeated
 			return
 	else:
-		increase_anger(2)
+		increase_anger(1)
 	turn_end(choice)
 
 func _on_negotiate_pressed() -> void:
 	var choice = await ask_question()
 	if choice == current_answer:
-		increase_anger(-2)
+		increase_anger(-3)
 	else:
-		increase_anger(2)
+		increase_anger(1)
 	turn_end(choice)
 
 func _on_heal_pressed() -> void:
 	var choice = await ask_question()
 	if choice == current_answer:
-		heal_player(30)
+		heal_player(50)
 	else:
-		increase_anger(2)
+		increase_anger(1)
 	turn_end(choice)
 
 func ask_question() -> int:
