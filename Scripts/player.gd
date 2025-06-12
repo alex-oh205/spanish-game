@@ -7,7 +7,7 @@ var flash_interval = 50
 var last_time_flashed = 0
 
 func _ready() -> void:
-	reset()
+	reset(Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2))
 
 func _process(delta: float) -> void:
 	if hurtbox.is_invulnerable:
@@ -22,8 +22,8 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 
-func reset():
-	position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+func reset(pos: Vector2):
+	position = pos
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 	hurtbox.reset_invulnerability()
 

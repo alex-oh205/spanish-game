@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://c7ievmcjw7h0"]
+
+[ext_resource type="Script" uid="uid://cbvq4432xe1si" path="res://Scripts/megaphone.gd" id="1_oafi0"]
+[ext_resource type="PackedScene" uid="uid://by0rw12wdij0p" path="res://sound_bullet.tscn" id="2_lp26w"]
+[ext_resource type="Texture2D" uid="uid://blvlw1s4iefnv" path="res://Assets/Art/Textures/megaphone_spritesheet.png" id="2_uebge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp26w"]
+atlas = ExtResource("2_uebge")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5alfl"]
+atlas = ExtResource("2_uebge")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e77ai"]
+atlas = ExtResource("2_uebge")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akwh8"]
+atlas = ExtResource("2_uebge")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myorv"]
+atlas = ExtResource("2_uebge")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umd34"]
+atlas = ExtResource("2_uebge")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfuf4"]
+atlas = ExtResource("2_uebge")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1hg0"]
+atlas = ExtResource("2_uebge")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_byd8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp26w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5alfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e77ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akwh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myorv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umd34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfuf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1hg0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utk35"]
+size = Vector2(58, 93)
+
+[node name="Megaphone" type="Area2D" node_paths=PackedStringArray("muzzle", "timer")]
+script = ExtResource("1_oafi0")
+projectile = ExtResource("2_lp26w")
+muzzle = NodePath("Muzzle")
+timer = NodePath("Timer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 128)
+rotation = 1.5708
+scale = Vector2(2.56, 2.56)
+sprite_frames = SubResource("SpriteFrames_byd8k")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 69.5)
+shape = SubResource("RectangleShape2D_utk35")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, 135)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

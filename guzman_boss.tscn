@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bog0hfexxnmmj"]
+
+[ext_resource type="Script" uid="uid://be005odiywbva" path="res://Scripts/guzman_boss.gd" id="1_hjpd2"]
+[ext_resource type="SpriteFrames" uid="uid://ukuomni10k7c" path="res://Assets/Art/AnimationFrames/guzman_frames.tres" id="2_1gym3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbob2"]
+size = Vector2(117, 193)
+
+[node name="GuzmanBoss" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_hjpd2")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.52, 1.52)
+sprite_frames = ExtResource("2_1gym3")
+animation = &"stage_3"
+autoplay = "enemy_anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, -23.5)
+shape = SubResource("RectangleShape2D_hbob2")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

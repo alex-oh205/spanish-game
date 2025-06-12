@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://conqtl080bnpg" path="res://Scripts/bullet.gd" id="1_v7oki"]
 [ext_resource type="PackedScene" uid="uid://d4bawc7xww1hx" path="res://damager.tscn" id="2_v8qja"]
 
-[node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("damager")]
+[node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("damager", "death_timer")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_v7oki")
 damager = NodePath("Damager")
+death_timer = NodePath("DeathTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

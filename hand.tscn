@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://y6bv5xe3w6rk"]
+
+[ext_resource type="Script" uid="uid://dujg2yd1qem6g" path="res://hand.gd" id="1_bfasp"]
+[ext_resource type="Texture2D" uid="uid://cp3os3nw0nhdu" path="res://Assets/Art/Textures/guzman_hand.png" id="1_u4p2i"]
+[ext_resource type="PackedScene" uid="uid://c4r2kjxu3dnck" path="res://ball_bullet.tscn" id="2_e75s6"]
+
+[node name="Hand" type="Node2D" node_paths=PackedStringArray("death_timer")]
+texture_filter = 1
+script = ExtResource("1_bfasp")
+bullet = ExtResource("2_e75s6")
+death_timer = NodePath("DeathTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.6, 4.6)
+texture = ExtResource("1_u4p2i")
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

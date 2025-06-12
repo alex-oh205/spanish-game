@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsrrwmmwqwrm8"
-path="res://.godot/imported/megaphone.png-429ba77d21afd2bc7e74efcfc6ca5b11.ctex"
+uid="uid://cfijmlr8aqref"
+path="res://.godot/imported/guzman_stage_3_spritesheet.png-f565afdb4affbea23fe4c7277ac48661.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Textures/megaphone.png"
-dest_files=["res://.godot/imported/megaphone.png-429ba77d21afd2bc7e74efcfc6ca5b11.ctex"]
+source_file="res://Assets/Art/Textures/guzman_stage_3_spritesheet.png"
+dest_files=["res://.godot/imported/guzman_stage_3_spritesheet.png-f565afdb4affbea23fe4c7277ac48661.ctex"]
 
 [params]
 

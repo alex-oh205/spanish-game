@@ -56,7 +56,10 @@ func switch_turn(lose=false):
 	ui.toggle_menu(lose)
 	if turn == Turn.PLAYER:
 		turn = Turn.ENEMY
-		player.reset()
+		if level_id == 2:
+			player.reset(Vector2(viewport_x / 2, viewport_y / 2 + 200))
+		else:
+			player.reset(Vector2(viewport_x / 2, viewport_y / 2))
 		enemy_turn_start_time = Time.get_ticks_msec()
 		enemy_begin()
 	else:

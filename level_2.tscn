@@ -4,25 +4,26 @@
 [ext_resource type="Script" uid="uid://dt11yaqqodaiq" path="res://Scripts/level_2.gd" id="1_xdadj"]
 [ext_resource type="PackedScene" uid="uid://cb6fg0uxqkcy1" path="res://damage_area.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_xdadj"]
-[ext_resource type="PackedScene" uid="uid://by0rw12wdij0p" path="res://sound_bullet.tscn" id="3_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://c7ievmcjw7h0" path="res://megaphone.tscn" id="3_n7ypv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7ypv"]
 
 [sub_resource type="TileSet" id="TileSet_1y8me"]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("small_area_timer", "big_area_timer", "bullet_timer", "ui", "player", "overlay")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("small_area_timer", "big_area_timer", "megaphone_timer", "ui", "player", "overlay")]
 script = ExtResource("1_xdadj")
 damage_area = ExtResource("2_1y8me")
-bullet = ExtResource("3_n7ypv")
+megaphone = ExtResource("3_n7ypv")
 small_area_timer = NodePath("SmallAreaTimer")
 big_area_timer = NodePath("BigAreaTimer")
-bullet_timer = NodePath("BulletTimer")
+megaphone_timer = NodePath("MegaphoneTimer")
 ui = NodePath("CanvasLayer/InGameUI")
 player = NodePath("Player")
 overlay = NodePath("CanvasLayer/Overlay")
 level_id = 1
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
 position = Vector2(30, 324)
@@ -74,5 +75,7 @@ one_shot = true
 [node name="BigAreaTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="BulletTimer" type="Timer" parent="."]
+[node name="MegaphoneTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

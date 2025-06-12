@@ -1,7 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4r2kjxu3dnck"]
+[gd_scene load_steps=10 format=3 uid="uid://c4r2kjxu3dnck"]
 
 [ext_resource type="PackedScene" uid="uid://d12a3ai7wmmvg" path="res://bullet.tscn" id="1_dlr1d"]
+[ext_resource type="Script" uid="uid://c3womwfcj0eix" path="res://Scripts/ball_bullet.gd" id="2_nd6sf"]
+[ext_resource type="Texture2D" uid="uid://bpvfkbhrpnyjq" path="res://Assets/Art/Textures/ball_spritesheet.png" id="2_nfpg8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nd6sf"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy66t"]
+atlas = ExtResource("2_nfpg8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp3lo"]
+atlas = ExtResource("2_nfpg8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvjnn"]
+atlas = ExtResource("2_nfpg8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sptx"]
+atlas = ExtResource("2_nfpg8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fosok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy66t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp3lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvjnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sptx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="BallBullet" instance=ExtResource("1_dlr1d")]
+collision_mask = 8
+script = ExtResource("2_nd6sf")
+death_time = 1.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_nd6sf")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(-2, 0)
+rotation = -1.57079
+scale = Vector2(1.125, 1.125)
+sprite_frames = SubResource("SpriteFrames_fosok")
+autoplay = "default"
+frame_progress = 0.3051
+
+[node name="CollisionShape2D" parent="Damager" index="0"]
+shape = SubResource("CircleShape2D_nd6sf")
 
 [editable path="Damager"]

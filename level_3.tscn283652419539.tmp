@@ -1,27 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5hdt3myuyws6"]
+[gd_scene load_steps=8 format=3 uid="uid://c5hdt3myuyws6"]
 
 [ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_1fhj5"]
 [ext_resource type="Script" uid="uid://dgr4t16ufv4" path="res://Scripts/level_3.gd" id="1_16pka"]
 [ext_resource type="PackedScene" uid="uid://bog0hfexxnmmj" path="res://guzman_boss.tscn" id="2_1jdk1"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_16pka"]
 [ext_resource type="PackedScene" uid="uid://c4r2kjxu3dnck" path="res://ball_bullet.tscn" id="2_j8bo8"]
-[ext_resource type="PackedScene" uid="uid://c2jaobeb5giu3" path="res://laser.tscn" id="4_fmu3g"]
-[ext_resource type="PackedScene" uid="uid://cb6fg0uxqkcy1" path="res://damage_area.tscn" id="5_7ds5r"]
-[ext_resource type="PackedScene" uid="uid://y6bv5xe3w6rk" path="res://hand.tscn" id="6_7ds5r"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16pka"]
 
 [sub_resource type="TileSet" id="TileSet_j8bo8"]
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("bullet_timer", "minion_timer", "ui", "player", "overlay")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("bullet_timer", "ui", "player", "overlay")]
 script = ExtResource("1_16pka")
 boss = ExtResource("2_1jdk1")
 bullet = ExtResource("2_j8bo8")
 bullet_timer = NodePath("BulletTimer")
-minion_timer = NodePath("MinionTimer")
-laser = ExtResource("4_fmu3g")
-damage_area = ExtResource("5_7ds5r")
-hand = ExtResource("6_7ds5r")
 ui = NodePath("CanvasLayer/InGameUI")
 player = NodePath("Player")
 overlay = NodePath("CanvasLayer/Overlay")
@@ -75,8 +68,3 @@ color = Color(0, 0, 0, 1)
 
 [node name="BulletTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="MinionTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

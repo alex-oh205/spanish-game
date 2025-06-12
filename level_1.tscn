@@ -19,6 +19,7 @@ player = NodePath("Player")
 overlay = NodePath("CanvasLayer/Overlay")
 
 [node name="WorldBoundary" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
 position = Vector2(30, 324)
@@ -44,6 +45,7 @@ format = 2
 
 [node name="Player" parent="." instance=ExtResource("1_3hls8")]
 position = Vector2(569, 324)
+collision_layer = 8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -65,3 +67,5 @@ one_shot = true
 
 [node name="LaserTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

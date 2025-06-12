@@ -74,7 +74,10 @@ func load_enemy():
 	enemy_image.play("enemy_anim")
 	if level_id == 2:
 		enemy_image_height = 350
-		enemy_image.offset = Vector2(-20, -40)
+		enemy_image.offset = Vector2(-20, -30)
+		enemy_health = 12
+		enemy_health_bar.max_value = enemy_health
+		enemy_health_bar.value = enemy_health
 	var height_scale = 1.0 * enemy_image_height / enemy_image.sprite_frames.get_frame_texture("enemy_anim", 0).get_height()
 	enemy_image.scale = Vector2(height_scale, height_scale)
 	if level_id == 1:

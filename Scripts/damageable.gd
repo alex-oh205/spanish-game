@@ -11,7 +11,7 @@ func _ready() -> void:
 	GameManager.player_health_changed.emit.call_deferred(health, max_health)
 
 func take_damage(damage: int) -> void:
-	if not is_invulnerable:
+	if false:
 		invulnerability_timer.start(invulnerability_duration)
 		is_invulnerable = true
 		health -= damage
