@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Spanish Game"
-run/main_scene="uid://c5hdt3myuyws6"
+config/name="El Jefe Guzman"
+run/main_scene="uid://djegekack72tq"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://njsvpsok2lsn"
 
 [autoload]
 

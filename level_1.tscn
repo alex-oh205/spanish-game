@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cual53yd6cfuh"]
+[gd_scene load_steps=8 format=3 uid="uid://cual53yd6cfuh"]
 
 [ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://dlpfhrcdpd7o2" path="res://Scripts/level_1.gd" id="1_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://bf548w3valsr8" path="res://enemy_mobile.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://c2jaobeb5giu3" path="res://laser.tscn" id="3_rka8t"]
+[ext_resource type="AudioStream" uid="uid://dtrmeyrg1pucs" path="res://Assets/Music/This shit is horrible duolingo music.mp3" id="6_5hph3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ihfcg"]
 
@@ -69,3 +70,6 @@ one_shot = true
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5hph3")
+volume_db = -20.0
+autoplay = true

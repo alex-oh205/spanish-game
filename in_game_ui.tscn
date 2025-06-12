@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5ijcwrjsyl0v"]
+[gd_scene load_steps=26 format=3 uid="uid://c5ijcwrjsyl0v"]
 
 [ext_resource type="Script" uid="uid://whyqol0dcixu" path="res://Scripts/in_game_ui.gd" id="1_4v80v"]
 [ext_resource type="StyleBox" uid="uid://bkib3mq7do4ef" path="res://Assets/Art/Styles/red_border.tres" id="1_cwbuu"]
@@ -7,7 +7,6 @@
 [ext_resource type="SpriteFrames" uid="uid://bbpluecsembqo" path="res://Assets/Art/AnimationFrames/duolingo_frames.tres" id="2_ukwlx"]
 [ext_resource type="StyleBox" uid="uid://dqa781n3gdtmr" path="res://Assets/Art/Styles/orange_border.tres" id="2_uusyb"]
 [ext_resource type="StyleBox" uid="uid://by1t7fhc2bnlt" path="res://Assets/Art/Styles/blue_border.tres" id="3_0qsvx"]
-[ext_resource type="Texture2D" uid="uid://p4c87ky17tk3" path="res://Assets/Art/Textures/output-onlinepngtools (1).png" id="3_ep3pr"]
 [ext_resource type="Script" uid="uid://b4ec3wyluoejm" path="res://Scripts/answer_button.gd" id="3_uusyb"]
 [ext_resource type="Texture2D" uid="uid://gaccbq73w4c2" path="res://Assets/Art/Textures/negotiate_icon.png" id="4_l8h7b"]
 [ext_resource type="StyleBox" uid="uid://cfais6ns0oxuf" path="res://Assets/Art/Styles/yellow_border.tres" id="4_uusyb"]
@@ -218,7 +217,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4plnj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4plnj")
 theme_override_styles/normal = ExtResource("2_uusyb")
 text = "Attack"
-icon = ExtResource("3_ep3pr")
+icon = ExtResource("4_l8h7b")
 
 [node name="Negotiate" type="Button" parent="ActionsUI/Background/MarginContainer/BottomContainer/Options/Actions"]
 custom_minimum_size = Vector2(150, 100)

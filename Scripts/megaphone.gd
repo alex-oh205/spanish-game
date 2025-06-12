@@ -3,7 +3,7 @@ extends Damager
 @export var projectile: PackedScene
 @export var muzzle: Marker2D
 @export var timer: Timer
-@export var shoot_delay: float = 0.5
+@export var shoot_delay: float = 0.75
 var short_delay: float = 0.03
 var target_position: Vector2
 var speed = 200

@@ -4,7 +4,7 @@ extends Level
 @export var laser: PackedScene
 @export var spawn_timer: Timer
 @export var laser_timer: Timer
-var spawn_delay = 0.5
+var spawn_delay = 0.7
 var laser_delay = 10
 var current_laser: Area2D = null
 var laser_duration = 4
@@ -13,7 +13,7 @@ func enemy_begin():
 	laser_timer.start(randf_range(3, 7) - ui.anger * 0.3)
 
 func enemy_loop():
-	spawn_delay = 0.5 - ui.anger * 0.04
+	spawn_delay = 0.7 - ui.anger * 0.04
 	laser_delay = randf_range(7, 10) - ui.anger * 0.2
 	if spawn_timer.is_stopped():
 		spawn_enemy()

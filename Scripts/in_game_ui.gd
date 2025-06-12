@@ -25,8 +25,8 @@ var questions: Array = [
 		"question": "Me siento enfermo, yo debo ir al ______.",
 		"choices": [
 			"cuerpo",
-			"consultario",
-			"hospital",
+			"consultorio médico",
+			"pierna",
 			"examen médico",
 		],
 		"answer": 1
@@ -42,7 +42,7 @@ var questions: Array = [
 		"answer": 0
 	},
 	{
-		"question": "Tengo gripe, necesito _________.",
+		"question": "Tengo gripe, y necesito _________.",
 		"choices": [
 			"salud",
 			"operacion",
@@ -52,7 +52,7 @@ var questions: Array = [
 		"answer": 2
 	},
 	{
-		"question": "Él fue al ______, sacó un diente.
+		"question": "Él fue al ______, que sacó un diente.
 ",
 		"choices": [
 			"dentista",
@@ -63,7 +63,7 @@ var questions: Array = [
 		"answer": 0
 	},
 	{
-		"question": "Tomas tu medicamentos ______.",
+		"question": "Toma tus medicamentos ______.",
 		"choices": [
 			"con frecuencia",
 			"a menudo",
@@ -118,7 +118,7 @@ var questions: Array = [
 			"maravillosamente",
 			"maravillosa",
 			"mal",
-			"graciosamente",
+			"graciosomente",
 		],
 		"answer": 0
 	},
@@ -133,7 +133,7 @@ var questions: Array = [
 		"answer": 0
 	},
 	{
-		"question": "Yo hablaba conmigo ___ la computadora.",
+		"question": "Yo hablaba contigo ___ la computadora.",
 		"choices": [
 			"por",
 			"para",
@@ -153,7 +153,7 @@ var questions: Array = [
 		"answer": 0
 	},
 	{
-		"question": "___ la semana, yo vine a la hospital ___ mejor salud.",
+		"question": "___ la semana, yo vine al hospital ___ mejor salud.",
 		"choices": [
 			"para, por",
 			"por, para",
@@ -173,29 +173,29 @@ var questions: Array = [
 		"answer": 1
 	},
 	{
-		"question": "Tú debes ______ si tu deseas vivir en tu casa.",
+		"question": "Tú debes ______ si tu deseas vivir en esta casa.",
 		"choices": [
 			"aquilar",
 			"alquilar",
 			"alquiler",
 			"aquier",
 		],
-		"answer": 2
+		"answer": 1
 	},
 	{
 		"question": "_____ la mesa, por favor.",
 		"choices": [
 			"levanta",
-			"haga",
-			"salga",
+			"hace",
+			"salgo",
 			"ponga",
 		],
 		"answer": 3
 	},
 	{
-		"question": "______ cualquier electrónicas, por favor.",
+		"question": "______ ningunas electrónicas, por favor.",
 		"choices": [
-			"No pongas",
+			"No pone",
 			"No tengas",
 			"No seas",
 			"No vayas",
@@ -203,7 +203,7 @@ var questions: Array = [
 		"answer": 1
 	},
 	{
-		"question": "¿Este es ____ yo pregunté?",
+		"question": "¿Esto es ____ yo pregunté?",
 		"choices": [
 			"lo que",
 			"que",
@@ -215,7 +215,7 @@ var questions: Array = [
 	{
 		"question": "____ al camarero por tu comida. ",
 		"choices": [
-			"pide",
+			"pídele",
 			"golpea",
 			"No hables",
 			"habla",
@@ -233,12 +233,12 @@ var questions: Array = [
 		"answer": 0
 	},
 	{
-		"question": "___ la cama en la habitación y ___ mi con la mesa.",
+		"question": "___ de la cama en la habitación y ___ con la mesa.",
 		"choices": [
 			"Sal, levanta",
 			"Entre, levanta",
 			"Entre, no molestes",
-			"Sal, ayuda",
+			"Sal, ayudame",
 		],
 		"answer": 3
 	},
@@ -273,11 +273,11 @@ var questions: Array = [
 		"answer": 2
 	},
 	{
-		"question": "¿Qué es la radiografía en inglés?",
+		"question": "¿Qué es 'la radiografía' en inglés?",
 		"choices": [
 			"radio",
-			"radiography",
-			"XRAY",
+			"graph",
+			"x-ray",
 			"radio waves",
 		],
 		"answer": 2
@@ -293,22 +293,22 @@ var questions: Array = [
 		"answer": 3
 	},
 	{
-		"question": "¿Qué debes hacerte al tu carro todos los años?",
+		"question": "¿Qué debes hacerle a tu coche cada mes?",
 		"choices": [
-			"arreglarlo",
+			"arreglar",
 			"revisar el aceite",
-			"estrellarlo",
-			"besarlo",
+			"estrellar",
+			"besar",
 		],
 		"answer": 1
 	},
 	{
-		"question": "¿Cómo se llaman los huecos más fuertes y también la palabra para to start'?",
+		"question": "Yo ______ el carro antes de conducir.",
 		"choices": [
-			"borrar",
-			"arrancar",
-			"empujar",
-			"conducir",
+			"borré",
+			"arranqué",
+			"empujé",
+			"conduje",
 		],
 		"answer": 1
 	},
@@ -337,13 +337,13 @@ var questions: Array = [
 		"choices": [
 			"mío",
 			"nuestro",
-			"tuyo",
+			"tuya",
 			"su",
 		],
 		"answer": 2
 	},
 	{
-		"question": "of yours (feminine, plural)",
+		"question": "de ustedes (feminine, plural)",
 		"choices": [
 			"suyos",
 			"suyas",
@@ -357,13 +357,13 @@ var questions: Array = [
 		"choices": [
 			"nuestros",
 			"tuyos",
-			"suyas",
+			"suya",
 			"suyos",
 		],
-		"answer": 3
+		"answer": 2
 	},
 	{
-		"question": "¿Qué es el pronombre recíproco reflexivo?",
+		"question": "¿Cuál es un pronombre recíproco reflexivo?",
 		"choices": [
 			"te",
 			"se",
@@ -373,7 +373,7 @@ var questions: Array = [
 		"answer": 1
 	},
 	{
-		"question": "Mi abuelo y mi abuela _________, ellos son muy alegres.",
+		"question": "Mi abuelo y mi abuela _________. Ellos son muy alegres.",
 		"choices": [
 			"se quieren",
 			"se enojan",
@@ -385,8 +385,8 @@ var questions: Array = [
 	{
 		"question": "Mi máma y papá _______ todos los días",
 		"choices": [
-			"se salen",
-			"se encuentran",
+			"se salimos",
+			"se encuentra",
 			"se vimos",
 			"se besan",
 		],
@@ -395,24 +395,26 @@ var questions: Array = [
 	{
 		"question": "Cuando mi amigo y yo _________ en la calle, ______.",
 		"choices": [
-			"nos vimos, nos besamos",
-			"nos vimos, nos encontramos",
+			"nos vimos, nos besan",
+			"nos vimos, se encontramos",
 			"nos vimos, nos hablamos",
 			"nos vimos, se abrazan",
 		],
 		"answer": 2
 	},
 	{
-		"question": "Nosotros _______ cuando ________.",
+		"question": "Ellos _______ cuando ________.",
 		"choices": [
-			"se abrazan, se encontraron",
-			"se hablan, se encontraron",
+			"nos abrazamos, nos encontramos",
+			"se hablamos, se encontramos",
 			"se saludan, se encontraron",
-			"se ayudan, se encontraron",
+			"nos ayudan, nos encontraron",
 		],
 		"answer": 2
 	}
 ]
+
+var questions_left = questions.duplicate()
 
 var enemy_health = 8
 var anger = 1
@@ -522,7 +524,9 @@ func _on_heal_pressed() -> void:
 	turn_end(choice)
 
 func ask_question() -> int:
-	current_question = questions[randi_range(0, questions.size() - 1)]
+	if questions_left.is_empty():
+		questions_left = questions.duplicate()
+	current_question = questions_left.pop_at(randi_range(0, questions_left.size() - 1))
 	dialog.text = current_question["question"]
 	actions.visible = false
 	answers.visible = true

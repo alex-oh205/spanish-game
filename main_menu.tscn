@@ -4,7 +4,8 @@
 [ext_resource type="Theme" uid="uid://b6c835wfhko0t" path="res://Assets/Art/Themes/main_theme.tres" id="2_7vrkn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vrkn"]
-font_size = 48
+font_size = 72
+font_color = Color(1, 0.866667, 0, 1)
 
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("overlay")]
 script = ExtResource("1_06t4h")
@@ -39,10 +40,11 @@ theme_override_constants/margin_top = 100
 [node name="Title" type="Label" parent="MenuUI/MarginContainer/TitleContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Title"
+text = "El Jefe Guzman"
 label_settings = SubResource("LabelSettings_7vrkn")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/MarginContainer"]
 layout_mode = 2
@@ -56,13 +58,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "START"
 
-[node name="InstructionsButton" type="Button" parent="MenuUI/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "INSTRUCTIONS"
-
 [node name="QuitButton" type="Button" parent="MenuUI/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -71,7 +66,7 @@ size_flags_vertical = 4
 text = "QUIT"
 
 [node name="Separator" type="Control" parent="MenuUI/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Overlay" type="ColorRect" parent="MenuUI"]

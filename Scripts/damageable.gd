@@ -1,6 +1,6 @@
 class_name Damageable extends Area2D
 
-@export var max_health: int = 100
+@export var max_health: int = 120
 @export var invulnerability_duration = 1 # in seconds
 @export var invulnerability_timer: Timer
 var health = max_health

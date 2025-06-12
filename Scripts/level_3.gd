@@ -80,6 +80,7 @@ func enemy_loop():
 				current_laser.fade()
 				current_laser = null
 	elif ui.enemy_health < 10:
+		bullet_delay = 3 - ui.anger * 0.3
 		if bullet_timer.is_stopped():
 			if randi_range(0, 2) == 0:
 				var h = hand.instantiate()
@@ -96,11 +97,21 @@ func enemy_loop():
 	else:
 		bullet_delay = 3 - ui.anger * 0.3
 		if bullet_timer.is_stopped():
-			spawn_bullets(3 + ui.anger * 0.5)
+			if randi_range(0, 3) == 0:
+				var h = hand.instantiate()
+				h.position = [
+					Vector2(viewport_x / 2, 100),
+					Vector2(viewport_x / 2, viewport_y - 100),
+					Vector2(100, viewport_y / 2),
+					Vector2(viewport_x - 100, viewport_y / 2),
+				].pick_random()
+				add_child(h)
+			else:
+				spawn_bullets(3 + ui.anger * 0.5)
 			bullet_timer.start(bullet_delay)
 			current_boss.sprite.play("attack")
 
-func spawn_bullets(amount):
+func spawn_bullets(amount: int):
 	var offset = randf_range(0, 2 * PI)
 	for i in range(amount):
 		var b = bullet.instantiate()

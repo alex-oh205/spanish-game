@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0qmg13mgdace"]
+[gd_scene load_steps=9 format=3 uid="uid://d0qmg13mgdace"]
 
 [ext_resource type="PackedScene" uid="uid://fgolmgmvdnm2" path="res://player.tscn" id="1_nmjpi"]
 [ext_resource type="Script" uid="uid://dt11yaqqodaiq" path="res://Scripts/level_2.gd" id="1_xdadj"]
 [ext_resource type="PackedScene" uid="uid://cb6fg0uxqkcy1" path="res://damage_area.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://c5ijcwrjsyl0v" path="res://in_game_ui.tscn" id="2_xdadj"]
 [ext_resource type="PackedScene" uid="uid://c7ievmcjw7h0" path="res://megaphone.tscn" id="3_n7ypv"]
+[ext_resource type="AudioStream" uid="uid://44ys3puvgsiv" path="res://Assets/Music/vhl central balls.mp3" id="6_0s5r2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7ypv"]
 
@@ -79,3 +80,6 @@ one_shot = true
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0s5r2")
+volume_db = -20.0
+autoplay = true
