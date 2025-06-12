@@ -22,35 +22,396 @@ var game_over_dialog: Array = [
 
 var questions: Array = [
 	{
-		"question": "¿Cómo se dice 'apple' en español?",
+		"question": "Me siento enfermo, yo debo ir al ______.",
 		"choices": [
-			"manzana",
-			"banana",
-			"fresa",
-			"pina",
+			"cuerpo",
+			"consultario",
+			"hospital",
+			"examen médico",
+		],
+		"answer": 1
+	},
+	{
+		"question": "Se me ____ y rompió la pierna mientras patinaba.",
+		"choices": [
+			"cayó",
+			"lastimó",
+			"torció",
+			"dio",
 		],
 		"answer": 0
 	},
 	{
-		"question": "¿Cuál es el verbo 'to be' permanente?",
+		"question": "Tengo gripe, necesito _________.",
 		"choices": [
-			"correct",
-			"something",
-			"something",
-			"something",
+			"salud",
+			"operacion",
+			"medicamentos",
+			"radiografía",
+		],
+		"answer": 2
+	},
+	{
+		"question": "Él fue al ______, sacó un diente.
+",
+		"choices": [
+			"dentista",
+			"dóctor",
+			"clinica",
+			"enfermera",
 		],
 		"answer": 0
 	},
 	{
-		"question": "¿Qué significa 'libro'?",
+		"question": "Tomas tu medicamentos ______.",
 		"choices": [
-			"correct",
-			"something",
-			"something",
-			"something",
+			"con frecuencia",
+			"a menudo",
+			"apenas",
+			"a tiempo",
+		],
+		"answer": 3
+	},
+	{
+		"question": "La parte más importante del cuerpo es ____.",
+		"choices": [
+			"el dedo",
+			"el corazón",
+			"la pierna",
+			"el ojo",
+		],
+		"answer": 1
+	},
+	{
+		"question": "_____ a menudo en el karaoke.",
+		"choices": [
+			"escuchaba música",
+			"comía",
+			"cantaba",
+			"bebía",
+		],
+		"answer": 2
+	},
+	{
+		"question": "Cuando era niño, ___ de vacaciones a España a menudo.",
+		"choices": [
+			"iba",
+			"fui",
+			"estuve",
+			"estaba",
 		],
 		"answer": 0
 	},
+	{
+		"question": "Se ____ ropa y gafas de sol.",
+		"choices": [
+			"vende",
+			"compra",
+			"compran",
+			"venden",
+		],
+		"answer": 3
+	},
+	{
+		"question": "Ella dibuja ____.",
+		"choices": [
+			"maravillosamente",
+			"maravillosa",
+			"mal",
+			"graciosamente",
+		],
+		"answer": 0
+	},
+	{
+		"question": "¿Puedo darte cincuenta pesos ___ las gafas de sol?",
+		"choices": [
+			"por",
+			"para",
+			"",
+			"",
+		],
+		"answer": 0
+	},
+	{
+		"question": "Yo hablaba conmigo ___ la computadora.",
+		"choices": [
+			"por",
+			"para",
+			"",
+			"",
+		],
+		"answer": 0
+	},
+	{
+		"question": "Yo fui a Hawaii ___ cinco días.",
+		"choices": [
+			"por",
+			"para",
+			"",
+			"",
+		],
+		"answer": 0
+	},
+	{
+		"question": "___ la semana, yo vine a la hospital ___ mejor salud.",
+		"choices": [
+			"para, por",
+			"por, para",
+			"por, por",
+			"para, para",
+		],
+		"answer": 1
+	},
+	{
+		"question": "¿Qué es el mnemotécnico de por?",
+		"choices": [
+			"PERFECT",
+			"DREAM",
+			"",
+			"",
+		],
+		"answer": 1
+	},
+	{
+		"question": "Tú debes ______ si tu deseas vivir en tu casa.",
+		"choices": [
+			"aquilar",
+			"alquilar",
+			"alquiler",
+			"aquier",
+		],
+		"answer": 2
+	},
+	{
+		"question": "_____ la mesa, por favor.",
+		"choices": [
+			"levanta",
+			"haga",
+			"salga",
+			"ponga",
+		],
+		"answer": 3
+	},
+	{
+		"question": "______ cualquier electrónicas, por favor.",
+		"choices": [
+			"No pongas",
+			"No tengas",
+			"No seas",
+			"No vayas",
+		],
+		"answer": 1
+	},
+	{
+		"question": "¿Este es ____ yo pregunté?",
+		"choices": [
+			"lo que",
+			"que",
+			"quien",
+			"quienes",
+		],
+		"answer": 0
+	},
+	{
+		"question": "____ al camarero por tu comida. ",
+		"choices": [
+			"pide",
+			"golpea",
+			"No hables",
+			"habla",
+		],
+		"answer": 0
+	},
+	{
+		"question": "___ dos ejercicios.",
+		"choices": [
+			"Haz",
+			"Habla",
+			"No veas",
+			"Toma",
+		],
+		"answer": 0
+	},
+	{
+		"question": "___ la cama en la habitación y ___ mi con la mesa.",
+		"choices": [
+			"Sal, levanta",
+			"Entre, levanta",
+			"Entre, no molestes",
+			"Sal, ayuda",
+		],
+		"answer": 3
+	},
+	{
+		"question": "No ____ a la escuela. Tú eres expulsado.",
+		"choices": [
+			"entras",
+			"vuelvas",
+			"atendas",
+			"escribas",
+		],
+		"answer": 1
+	},
+	{
+		"question": "No ___ estupido. ____ el jarrón de nuevo allí.",
+		"choices": [
+			"estés, come",
+			"estés, pon",
+			"seas, come",
+			"seas, pon",
+		],
+		"answer": 3
+	},
+	{
+		"question": "¿Cuál es la palabra para “computer”?",
+		"choices": [
+			"el canal",
+			"la computación",
+			"la computadora",
+			"la red",
+		],
+		"answer": 2
+	},
+	{
+		"question": "¿Qué es la radiografía en inglés?",
+		"choices": [
+			"radio",
+			"radiography",
+			"XRAY",
+			"radio waves",
+		],
+		"answer": 2
+	},
+	{
+		"question": "¿Qué te da direcciones?",
+		"choices": [
+			"la aplicación",
+			"el buscador",
+			"el internet",
+			"el navegador GPS",
+		],
+		"answer": 3
+	},
+	{
+		"question": "¿Qué debes hacerte al tu carro todos los años?",
+		"choices": [
+			"arreglarlo",
+			"revisar el aceite",
+			"estrellarlo",
+			"besarlo",
+		],
+		"answer": 1
+	},
+	{
+		"question": "¿Cómo se llaman los huecos más fuertes y también la palabra para to start'?",
+		"choices": [
+			"borrar",
+			"arrancar",
+			"empujar",
+			"conducir",
+		],
+		"answer": 1
+	},
+	{
+		"question": "¿Cómo se dice la frase 'my car' en español?",
+		"choices": [
+			"El carro mío.",
+			"El carro tuyo.",
+			"El carro suyo.",
+			"El carro nuestro.",
+		],
+		"answer": 0
+	},
+	{
+		"question": "¿Es la silla tuya? Si, la silla es ____.",
+		"choices": [
+			"su",
+			"mi",
+			"tu",
+			"mía",
+		],
+		"answer": 3
+	},
+	{
+		"question": "¿Es ella una amiga ______?",
+		"choices": [
+			"mío",
+			"nuestro",
+			"tuyo",
+			"su",
+		],
+		"answer": 2
+	},
+	{
+		"question": "of yours (feminine, plural)",
+		"choices": [
+			"suyos",
+			"suyas",
+			"tuyas",
+			"tuyos",
+		],
+		"answer": 1
+	},
+	{
+		"question": "¿Es la culpa mía? No, la culpa es ____. (theirs)",
+		"choices": [
+			"nuestros",
+			"tuyos",
+			"suyas",
+			"suyos",
+		],
+		"answer": 3
+	},
+	{
+		"question": "¿Qué es el pronombre recíproco reflexivo?",
+		"choices": [
+			"te",
+			"se",
+			"me",
+			"nuestro",
+		],
+		"answer": 1
+	},
+	{
+		"question": "Mi abuelo y mi abuela _________, ellos son muy alegres.",
+		"choices": [
+			"se quieren",
+			"se enojan",
+			"se odian",
+			"se abrazan",
+		],
+		"answer": 0
+	},
+	{
+		"question": "Mi máma y papá _______ todos los días",
+		"choices": [
+			"se salen",
+			"se encuentran",
+			"se vimos",
+			"se besan",
+		],
+		"answer": 3
+	},
+	{
+		"question": "Cuando mi amigo y yo _________ en la calle, ______.",
+		"choices": [
+			"nos vimos, nos besamos",
+			"nos vimos, nos encontramos",
+			"nos vimos, nos hablamos",
+			"nos vimos, se abrazan",
+		],
+		"answer": 2
+	},
+	{
+		"question": "Nosotros _______ cuando ________.",
+		"choices": [
+			"se abrazan, se encontraron",
+			"se hablan, se encontraron",
+			"se saludan, se encontraron",
+			"se ayudan, se encontraron",
+		],
+		"answer": 2
+	}
 ]
 
 var enemy_health = 8

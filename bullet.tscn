@@ -18,6 +18,7 @@ scale = Vector2(20, 20)
 [node name="Damager" parent="." instance=ExtResource("2_v8qja")]
 
 [node name="DeathTimer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -96,7 +96,7 @@ func enemy_loop():
 	else:
 		bullet_delay = 3 - ui.anger * 0.3
 		if bullet_timer.is_stopped():
-			spawn_bullets(3 + ui.anger)
+			spawn_bullets(3 + ui.anger * 0.5)
 			bullet_timer.start(bullet_delay)
 			current_boss.sprite.play("attack")
 

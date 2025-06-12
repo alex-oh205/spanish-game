@@ -63,4 +63,7 @@ frame_progress = 0.3051
 [node name="CollisionShape2D" parent="Damager" index="0"]
 shape = SubResource("CircleShape2D_nd6sf")
 
+[node name="DeathTimer" parent="." index="3"]
+wait_time = 3.0
+
 [editable path="Damager"]
